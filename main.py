@@ -1,3 +1,12 @@
 # File: main.py
-def add(a, b):
-    return a + b
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+def read_root():
+    return {"message": "Hello from Render!"}
+
+@app.get("/add")
+def add(a: int, b: int):
+   return {"result": a + b}
