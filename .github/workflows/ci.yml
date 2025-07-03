@@ -1,0 +1,13 @@
+name: Basic CI Demo
+
+on: [push]
+
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Say hello
+        run: echo "Hello from GitHub Actions!"
