@@ -1,12 +1,13 @@
-name: Python CI
+name: Python CI with Render Deploy
 
 on: [push]
 
 jobs:
-  test-python:
+  test-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repo
+      - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Set up Python
@@ -14,8 +15,14 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install pytest
+      - name: Install dependencies
         run: pip install pytest
 
       - name: Run tests
         run: pytest
+
+      - name: Trigger Render deploy
+        if: success()  # Only run if tests pass
+        run: |
+          curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"
+
