@@ -10,3 +10,9 @@ jobs:
     steps:
       - name: Hello from a real Action
         uses: actions/hello-world-javascript-action@v1
+# GPT17 
+      - name: Say hello
+        uses: terrytaylorbonn/421b_custom_action@v1
+        with:
+          name: 421b_world
+
