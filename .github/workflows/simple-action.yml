@@ -1,0 +1,12 @@
+# GPT14 File: .github/workflows/simple-action.yml
+name: Minimal Real Action
+
+on:
+  workflow_dispatch:
+
+jobs:
+  use-an-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello from a real Action
+        uses: actions/hello-world-javascript-action@v1
