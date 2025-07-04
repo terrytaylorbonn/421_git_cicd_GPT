@@ -1,0 +1,12 @@
+name: Manual Hello
+
+on:
+  workflow_dispatch:
+
+jobs:
+  say-hi:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello world
+        run: echo "GPT1c*** 👋 Hello from GitHub Actions!"
+
